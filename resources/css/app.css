@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme {
+    --color-mainl-1: #B0C8F2;
+    --color-mainl-2: #2260D8;
+    --breakpoint-1440: 1440px;
+    --font-Inter: "Inter", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    font-family: "Inter", sans-serif;
+}
+
+button, label {
+    cursor: pointer;
+}
+
+.borderCustom {
+    @apply before:left-[-1px] before:right-[-1px] before:top-[-1px] before:bottom-[-1px] before:absolute before:-z-10 relative
+}
+
+::selection {
+    background-color: #758CED;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #758CED;
+}
+
+
+.loader {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: white;
+    position: fixed;
+    display: flex;
+    transition: opacity 0.5s ease-in-out;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    overflow: hidden;
+}
+
+.is-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+    margin-top: 0 !important;
+    background-color: #ffffff;
+    padding:15px;
+    animation: headerFadeInDown 0.3s ease-in-out;
+}
+
+@keyframes headerFadeInDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.loader img {
+    width: 48px;
+    height: 48px;
+    animation: logoAnimation 2s infinite ease-in-out;
+}
+
+@keyframes logoAnimation {
+    0% {
+        transform: scale(1);
+
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.loader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.backdrop {
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background-color: #0a0a0a71;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.backdrop.active {
+    opacity: 1;
+}
+
+#mobileMenuContent.active {
+    right: 0;
+}
+
+.active>div>svg>path {
+    stroke-opacity: 1;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(7deg) skewX(356deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(6deg) skewX(356deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(7deg) skewX(356deg);
+    }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+    animation-fill-mode: both;
+}
+
+.border_top{
+    @apply border-t-2 border-white/35;
+}
+
+
+.default-gradient{
+    @apply bg-linear-to-b from-mainl-1 to-mainl-2;
+}
+.default-gradient-text{
+    @apply bg-linear-to-b from-mainl-1 to-mainl-2 bg-clip-text text-transparent;
+}
