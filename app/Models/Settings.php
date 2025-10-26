@@ -12,6 +12,5 @@ class Settings extends Model
     protected $fillable = [
         "twitter",
         "text",
-        "underline_text"
     ];
 }

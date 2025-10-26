@@ -13,13 +13,9 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
-    'grok' => [
-        'api_key'  => env('GROK_API_KEY'),
-        'base_uri' => env('GROK_BASE_URI', 'https://api.x.ai'), // ВАЖНО: без /v1
-        'model'    => env('GROK_MODEL', 'grok-4-0709'),
-        'timeout'  => (int) env('GROK_TIMEOUT', 15),
-        'debug'    => (bool) env('GROK_DEBUG', false), // подробные логи
-    ],
+     'solana' => [
+            'rpc' => env('SOLANA_RPC', 'https://api.mainnet-beta.solana.com'),
+        ],
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),

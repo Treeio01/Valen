@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-export default function FaqQuestion({index, item}) {
+export default function FaqQuestion({index, item, dataAosDelay = "0"}) {
 
     const [openIndex, setOpenIndex] = useState(null);
 
@@ -10,8 +10,10 @@ export default function FaqQuestion({index, item}) {
     };
     return (
         <div
-            key={index}
             className="flex bg-[#0A0A0A] border-2 border-[#141414] rounded-[23px] w-full"
+            data-aos="fade-up"
+            data-aos-delay={dataAosDelay}
+            data-aos-duration="800"
         >
             <div
                 className="flex border_top flex-col p-[30px] gap-2 w-full rounded-[20px] relative cursor-pointer"

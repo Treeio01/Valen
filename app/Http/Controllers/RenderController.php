@@ -20,8 +20,7 @@ class RenderController extends Controller
 
     public function dashboard(){
         return Inertia::render('Dashboard', [
-            "reports" => Report::with("developer")->get(),
-           "reportsUserCount" => Report::where("user_id", request()->user()->id)->count(),
+             "user" => request()->user()
         ]);
     }
 

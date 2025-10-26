@@ -24,7 +24,7 @@ button, label {
 }
 
 ::selection {
-    background-color: #758CED;
+    background-color: #2260D8;
 }
 
 ::-webkit-scrollbar {
@@ -32,7 +32,7 @@ button, label {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #758CED;
+    background-color: #2260D8;
 }
 
 
@@ -41,7 +41,7 @@ button, label {
     height: 100vh;
     top: 0;
     left: 0;
-    background-color: white;
+    background-color: black;
     position: fixed;
     display: flex;
     transition: opacity 0.5s ease-in-out;
@@ -76,8 +76,7 @@ button, label {
 }
 
 .loader img {
-    width: 48px;
-    height: 48px;
+    width: 75px;
     animation: logoAnimation 2s infinite ease-in-out;
 }
 

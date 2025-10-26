@@ -16,7 +16,6 @@ class SettingsSeeder extends Seeder
         Settings::create([
             "text" => "text",
             "twitter" => "twitter",
-            "underline_text" => "underline_text"
         ]);
     }
 }

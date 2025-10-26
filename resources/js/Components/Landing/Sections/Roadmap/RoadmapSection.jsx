@@ -5,10 +5,10 @@ export default function RoadmapSection() {
 
 
 
-    return (<div id={"roadmap"} className={"flex flex-col items-center w-full max-w-[1250px] mt-[120px] gap-[40px]"}>
-        <SectionHeader section={"Roadmap"} title={"Valen’s path forward"} description={"Built steadily. Moving fast."} />
+    return (<div id={"roadmap"} className={"flex flex-col items-center w-full max-w-[1250px] mt-[120px] gap-[40px]"} data-aos="fade-up" data-aos-duration="900">
+        <SectionHeader section={"Roadmap"} title={"Valen’s path forward"} description={"Built steadily. Moving fast."} dataAosDelay="80" />
         <div className="flex w-full lg:flex-row flex-col items-center lg:items-start lg:justify-between flex-wrap gap-[20px]">
-            <RoadmapBlock number={"1"} title={"Launch of Valen MVP on Solana mainnet"} time={"Q4 2025"} list={[
+            <RoadmapBlock number={"1"} title={"Launch of Valen MVP on Solana mainnet"} time={"Q4 2025"} dataAosDelay="120" list={[
                 {
                     text: "Integration with Phantom and Backpack wallets."
                 },
@@ -26,7 +26,7 @@ export default function RoadmapSection() {
                 },
             ]}/>
             <div className="flex flex-col gap-5">
-                <RoadmapBlock number={"2"} title={"Expansion of supported assets (SOL-based and stable pairs)"} time={"Q1 2026"} list={[
+                <RoadmapBlock number={"2"} title={"Expansion of supported assets (SOL-based and stable pairs)"} time={"Q1 2026"} dataAosDelay="160" list={[
                     {
                         text: "Full Auto Reload release with adaptive AI sensitivity."
                     },
@@ -37,7 +37,7 @@ export default function RoadmapSection() {
                         text: "Telegram and wallet-linked performance insights."
                     },
                 ]}/>
-                <RoadmapBlock number={"4"} title={"Mobile web and lightweight browser extension releases"} time={"Q3 2026"} list={[
+                <RoadmapBlock number={"4"} title={"Mobile web and lightweight browser extension releases"} time={"Q3 2026"} dataAosDelay="240" list={[
                     {
                         text: "Strategic partnerships with Solana-based trading protocols."
                     },
@@ -47,7 +47,7 @@ export default function RoadmapSection() {
                 ]}/>
             </div>
             <div className="flex flex-col gap-5">
-                <RoadmapBlock number={"3"} title={"Integration with DEX APIs (Jupiter, Meteora)"} time={"Q2 2026"} list={[
+                <RoadmapBlock number={"3"} title={"Integration with DEX APIs (Jupiter, Meteora)"} time={"Q2 2026"} dataAosDelay="200" list={[
                     {
                         text: "Multi-wallet support and cross-portfolio monitoring."
                     },
@@ -55,7 +55,7 @@ export default function RoadmapSection() {
                         text: "Introduction of Profit Vault smart savings layer."
                     },
                 ]}/>
-                <RoadmapBlock number={"5"} title={"AI Model 2.0 — fully personalized adaptation"} time={"Q4 2026"} list={[
+                <RoadmapBlock number={"5"} title={"AI Model 2.0 — fully personalized adaptation"} time={"Q4 2026"} dataAosDelay="280" list={[
                     {
                         text: "Cross-chain expansion beyond Solana."
                     },

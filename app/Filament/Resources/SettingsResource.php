@@ -29,10 +29,6 @@ class SettingsResource extends Resource
                 ->label('Text')
                 ->nullable()
                 ->maxLength(255),
-            Forms\Components\TextInput::make('underline_text')
-                ->label('Underline Text')
-                ->nullable()
-                ->maxLength(255),
         ])->columns(2);
     }
 
@@ -42,7 +38,6 @@ class SettingsResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('twitter')->limit(40)->toggleable(),
                 Tables\Columns\TextColumn::make('text')->limit(40),
-                Tables\Columns\TextColumn::make('underline_text')->limit(40),
                 Tables\Columns\TextColumn::make('updated_at')->since()->label('Updated'),
             ])
             ->filters([])

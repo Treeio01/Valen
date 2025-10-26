@@ -7,7 +7,7 @@ export default function MainSection() {
 
     const { connectWallet } = useConnectWallet({
         onSuccess: ({ wallet }) => {
-            form1.data.address = wallet.address
+            form.data.address = wallet.address
             form1.post("/user/register");
         },
         onError: (e) => console.error("❌ Connect error", e),
@@ -55,32 +55,54 @@ export default function MainSection() {
     </svg>
 
     return (
-        <div id={"main"} className="flex flex-col z-50 items-center w-full max-w-[1250px] gap-10 mt-[50px]">
-            <div className="flex flex-col gap-[15px] w-full items-center">
-                <div className="flex w-full max-w-[556px] rounded-full border_top px-5 py-2 bg-white/5 backdrop-blur-[10px]">
+        <div
+            id={"main"}
+            className="flex flex-col z-50 items-center w-full max-w-[1250px] gap-10 mt-[50px]"
+        >
+            <div
+                className="flex flex-col gap-[15px] w-full items-center"
+            >
+                <div
+                    className="flex w-full max-w-[556px] rounded-full border_top px-5 py-2 bg-white/5 backdrop-blur-[10px]"
+                >
                     <span className="text-[17px] leading-[150%] text-[#B9C1D3]">
                         Built on Solana. Designed for traders who value calm over chaos
                     </span>
                 </div>
-                <div className="flex flex-col gap-[20px] items-center w-full max-w-[780px]">
+                <div
+                    className="flex flex-col gap-[20px] items-center w-full max-w-[780px]"
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                >
                     <span className="text-[68px] text-white font-semibold text-center leading-[110%]" style={{ display: "ruby" }}>
-                        Turn every trade into controlled  {mainSVG}   profit
+                        Turn every trade into controlled   <img src="/img/main-logo-img.png" className="max-w-[70px]" alt="" />   profit
                     </span>
                     <span className="max-w-[582px] text-lg leading-[150%] text-[#A7ADBE] text-center">
                         Valen automatically secures your gains by converting profit in SOL to USDC — before the market takes it back.
                     </span>
                 </div>
             </div>
-            <button onClick={() =>
+            <button
+                onClick={() =>
                 connectWallet({
                     walletChainType: "solana-only",
                 })
-            } className="flex shadow-[inset_0_2px_1px_0_rbga(255,255,255,0.5)] px-[25px] py-[15px] rounded-full default-gradient">
+            }
+                className="flex  z-50 shadow-[inset_0_2px_1px_0_rbga(255,255,255,0.5)] px-[25px] py-[15px] rounded-full default-gradient"
+                data-aos="fade-up"
+                data-aos-delay="250"
+            >
                 <span className="font-medium text-white">
                    Launch App
                 </span>
             </button>
-            <img src="/img/dashboard.png" className="max-w-[1250px]" alt="" />
+            <img
+                src="/img/dashboard.png"
+                className="max-w-[1250px]"
+                alt=""
+                data-aos="fade-up"
+                data-aos-delay="300"
+            />
         </div>
     )
 }

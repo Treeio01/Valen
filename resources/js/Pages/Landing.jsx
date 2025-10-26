@@ -29,7 +29,7 @@ export default function Landing() {
 
     return (<>
         <div className="flex flex-col relative items-center w-full overflow-x-hidden bg-black">
-            <Head title="Auvia — Trust Layer for Solana."/>
+            <Head title="Valen"/>
             <div className={`loader${isLoaded ? " fade-out" : ""}`}>
                 <img src="/img/logo.svg" className="loader_image" alt=""/>
             </div>
@@ -38,7 +38,7 @@ export default function Landing() {
                         {props.settings.text}
                     </span>
             </div>
-            <img src="/img/main-bg.svg" className="absolute top-[47px] left-1/2 -translate-x-1/2" alt=""/>
+            <img src="/img/main-bg.png" className="absolute top-[47px] left-1/2 -translate-x-1/2" alt=""/>
             <Header twitter={props.settings.twitter}></Header>
             <MainSection/>
             <AboutSection/>

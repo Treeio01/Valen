@@ -41,17 +41,27 @@ export default function FaqSection() {
     ];
 
     return (
-        <div id={"faq"} className="flex flex-col items-center w-full max-w-[1250px] mt-[120px] gap-[30px]">
-            <SectionHeader section={"FAQ"} title={"Frequently asked questions"} description={"Clear answers for calm trading."} />
+        <div id={"faq"} className="flex flex-col items-center w-full max-w-[1250px] mt-[120px] gap-[30px]" data-aos="fade-up" data-aos-duration="900">
+            <SectionHeader section={"FAQ"} title={"Frequently asked questions"} description={"Clear answers for calm trading."} dataAosDelay="80" />
             <div className="flex w-full lg:flex-row flex-col justify-center gap-[20px]">
                 <div className="flex flex-col gap-[20px]">
                     {faqsLeft.map((item, index) => (
-                        <FaqQuestion key={index} item={item} />
+                        <FaqQuestion
+                            key={`left-${index}`}
+                            index={index}
+                            item={item}
+                            dataAosDelay={`${120 + index * 60}`}
+                        />
                     ))}
                 </div>
                 <div className="flex flex-col gap-[20px]">
                     {faqsRight.map((item, index) => (
-                        <FaqQuestion key={index} item={item} />
+                        <FaqQuestion
+                            key={`right-${index}`}
+                            index={index}
+                            item={item}
+                            dataAosDelay={`${150 + index * 60}`}
+                        />
                     ))}
                 </div>
             </div>

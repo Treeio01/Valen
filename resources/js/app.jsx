@@ -1,13 +1,13 @@
 import "./bootstrap";
 import "../css/app.css";
 
-import {createRoot} from "react-dom/client";
-import {createInertiaApp} from "@inertiajs/react";
-import {resolvePageComponent} from "laravel-vite-plugin/inertia-helpers";
-import React, {useEffect} from "react";
-import {initAOS} from "@/utils/aos.js";
-import {PrivyProvider} from "@privy-io/react-auth";
-import {toSolanaWalletConnectors} from "@privy-io/react-auth/solana";
+import { createRoot } from "react-dom/client";
+import { createInertiaApp } from "@inertiajs/react";
+import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
+import React, { useEffect } from "react";
+import { initAOS } from "@/utils/aos.js";
+import { PrivyProvider } from "@privy-io/react-auth";
+import { toSolanaWalletConnectors } from "@privy-io/react-auth/solana";
 const appName = import.meta.env.VITE_APP_NAME || "Laravel";
 
 createInertiaApp({
@@ -17,10 +17,10 @@ createInertiaApp({
             `./Pages/${name}.jsx`,
             import.meta.glob("./Pages/**/*.jsx")
         ),
-    setup({el, App, props}) {
+    setup({ el, App, props }) {
         const root = createRoot(el);
 
-        const AOSProvider = ({children}) => {
+        const AOSProvider = ({ children }) => {
             useEffect(() => {
                 initAOS();
             }, []);
@@ -29,13 +29,13 @@ createInertiaApp({
 
         root.render(
             <PrivyProvider
-                appId="cmguz03i500e5l50b3amixt5j"
+                appId="cmh6xl0az01qul40c2flu0kpj"
                 config={{
                     appearance: {
-                        accentColor: "#000000",
-                        theme: "#FFFFFF",
+                        accentColor: "#ffffff",
+                        theme: "#000000",
                         showWalletLoginFirst: false,
-                        logo: "/img/logoAuth.png",
+                        logo: "https://i.imgur.com/0OgGdcL.png",
                         walletChainType: "solana-only",
                         walletList: [
                             "detected_solana_wallets",
@@ -52,7 +52,6 @@ createInertiaApp({
                         },
                     },
                     embeddedWallets: {
-                        requireUserPasswordOnCreate: false,
                         showWalletUIs: true,
                         ethereum: {
                             createOnLogin: "off",
@@ -69,12 +68,10 @@ createInertiaApp({
                             connectors: toSolanaWalletConnectors(),
                         },
                     },
-
                 }}
             >
-
                 <AOSProvider>
-                        <App {...props} />
+                    <App {...props} />
                 </AOSProvider>
             </PrivyProvider>
         );

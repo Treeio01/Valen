@@ -1,6 +1,19 @@
-export default function RoadmapBlock({number, time, title, list}){
+export default function RoadmapBlock({
+    number,
+    time,
+    title,
+    list,
+    dataAos = "fade-up",
+    dataAosDelay = "0",
+    dataAosDuration = "800",
+}){
     return (
-        <div className={`flex bg-[#0A0A0A] border-2 border-[#141414] h-max rounded-[26px] w-full max-w-[403px]`}>
+        <div
+            className={`flex bg-[#0A0A0A] border-2 border-[#141414] h-max rounded-[26px] w-full max-w-[403px]`}
+            data-aos={dataAos}
+            data-aos-delay={dataAosDelay}
+            data-aos-duration={dataAosDuration}
+        >
             <div className="flex border_top overflow-hidden flex-col h-full !border-white/15 w-full rounded-[23px] relative">
                 <img src="/img/roadmap-bg.png" className={"absolute top-0 left-0"} alt=""/>
                 <div className="flex absolute p-[2px] top-[46px] right-[0px] bg-linear-to-b from-white to-mainl-2 rounded-l-[15px] overflow-hidden">

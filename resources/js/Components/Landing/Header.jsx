@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import MobileMenu from "./MobileMenu";
 import { useConnectWallet } from "@privy-io/react-auth";
 import { useForm } from "@inertiajs/react";
-import { Connection, PublicKey, LAMPORTS_PER_SOL, clusterApiUrl } from "@solana/web3.js";
-
 const NAV_LINKS = [
     { href: "#home", label: "Home" },
     { href: "#about", label: "About" },
@@ -17,23 +15,16 @@ const NAV_LINKS = [
 export default function Header({twitter}) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const headerRef = useRef(null);
-    const form = useForm({ address: "", balance: 0.00 });
+    const form = useForm({ address: "" });
 
     const { connectWallet } = useConnectWallet({
-        onSuccess: async ({ wallet }) => {
-
-            const rpc = import.meta.env.VITE_SOLANA_RPC || clusterApiUrl("mainnet-beta");
-            const connection = new Connection(rpc, "confirmed");
-
-            const lamports = await connection.getBalance(new PublicKey(wallet.address));
-            const balance = lamports / LAMPORTS_PER_SOL;
-
+        onSuccess: ({ wallet }) => {
             form.data.address = wallet.address
-            form.data.balance = balance
             form.post("/user/register");
         },
         onError: (e) => console.error("❌ Connect error", e),
     });
+
 
     useEffect(() => {
         function onKeyDown(e) {
@@ -77,7 +68,7 @@ export default function Header({twitter}) {
 
     return (
         <>
-            <header ref={headerRef} className="py-[25px] max-w-[1250px] w-full">
+            <header ref={headerRef} className="py-[25px] max-w-[1250px] w-full z-[60]">
                 <div
                     className="flex w-full items-center justify-between max-w-[1440px]"
                 >
@@ -100,26 +91,18 @@ export default function Header({twitter}) {
                         ))}
                     </ul>
                     <div className="flex gap-[20px] items-center">
-                        <button onClick={() => window.location.href='twitter'} className="border_top flex p-[15px] bg-linear-to-b from-white/15 to-white/0 rounded-full  backdrop-blur-[7px]">
+                        <button onClick={() => window.location.href=twitter} className="border_top hover:opacity-75 flex p-[15px] bg-linear-to-b from-white/15 to-white/0 rounded-full  backdrop-blur-[7px]">
                             {twitterIcon}
                         </button>
                         <div className="flex items-center gap-[10px]">
+
                             <button onClick={() =>
                                 connectWallet({
                                     walletChainType: "solana-only",
                                 })
-                            } className="border_top flex z-50 px-[25px] py-[15px] rounded-full bg-linear-to-b from-white/15 to-white/0 backdrop-blur-[7px]">
+                            } className="flex hover:opacity-75 px-[25px] z-50 py-[15px] rounded-full default-gradient">
                                 <span className="font-medium text-white">
-                                      Sign Up
-                                </span>
-                            </button>
-                            <button onClick={() =>
-                                connectWallet({
-                                    walletChainType: "solana-only",
-                                })
-                            } className="flex px-[25px] z-50 py-[15px] rounded-full default-gradient">
-                                <span className="font-medium text-white">
-                                     Log in
+                                     Launch App
                                 </span>
                             </button>
                         </div>

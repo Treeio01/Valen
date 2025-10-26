@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string("twitter")->nullable();
             $table->string("text")->nullable();
-            $table->string("underline_text")->nullable();
             $table->timestamps();
         });
     }

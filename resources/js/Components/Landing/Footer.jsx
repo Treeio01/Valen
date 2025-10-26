@@ -1,7 +1,3 @@
-import { useEffect, useRef, useState } from "react";
-import MobileMenu from "./MobileMenu";
-import { useConnectWallet } from "@privy-io/react-auth";
-import { useForm } from "@inertiajs/react";
 
 const NAV_LINKS = [
     { href: "#home", label: "Home" },
@@ -60,7 +56,7 @@ export default function Footer({twitter}) {
                         ))}
                     </ul>
                     <div className="flex gap-[20px] items-center">
-                        <button onClick={() => window.location.href='twitter'} className="border_top flex p-[15px] bg-linear-to-b from-white/15 to-white/0 rounded-full  backdrop-blur-[7px]">
+                        <button onClick={() => window.location.href=twitter} className="border_top flex p-[15px] bg-linear-to-b from-white/15 to-white/0 rounded-full  backdrop-blur-[7px]">
                             {twitterIcon}
                         </button>
                     </div>
